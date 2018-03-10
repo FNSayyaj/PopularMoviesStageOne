@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="primary_poster_path">http://image.tmdb.org/t/p/w500/</string>
+    <string name="no_connectivity_error">Error, No Internet Connectivity Detected Please Reconnect and Click Refresh Button</string>
+    <string name="popular_movie_title">Popular Movies</string>
+    <string name="top_rated_movies_title">Top Rated Movies</string>
+    <string name="vote_of_ten"> of 10</string>
+    <string name="release_date_tv">Release Date</string>
+    <string name="plot_tv">Movie Plot</string>
+    <string name="vote_average_tv">Vote Average</string>
+    <string name="sort_menu">Sort As:</string>
+    <string name="top_rate_menu">Top Rated</string>
+    <string name="most_popular_menu">Popularity</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="poster_iv_description">ImageView holds movie poster image</string>
+    <string name="splash_iv_description">ImageView holds the image of the app luncher</string>
+</resources>
