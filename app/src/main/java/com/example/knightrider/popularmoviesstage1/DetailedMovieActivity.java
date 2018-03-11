@@ -12,8 +12,6 @@ import com.squareup.picasso.Picasso;
 
 public class DetailedMovieActivity extends AppCompatActivity {
 
-    public static final String MOVIE_EXTRA_KEY = "movieExtra";
-
     private static final String KEY_POSTER_PATH = "poster_path";
     private static final String KEY_TITLE = "original_title";
     private static final String KEY_RELEASE_DATE = "release_date";
