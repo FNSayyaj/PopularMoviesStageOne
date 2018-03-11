@@ -24,8 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailedMovieActivity"
-            android:parentActivityName=".MainMovieActivity"
-            android:screenOrientation="portrait"/>
+            android:parentActivityName=".MainMovieActivity" />
     </application>
 
 </manifest>

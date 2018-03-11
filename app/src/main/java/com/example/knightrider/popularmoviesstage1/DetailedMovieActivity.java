@@ -7,17 +7,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 public class DetailedMovieActivity extends AppCompatActivity {
 
-    private static final String KEY_POSTER_PATH = "posterurl";
-    private static final String KEY_TITLE = "title";
-    private static final String KEY_RELEASE_DATE = "releasedate";
-    private static final String KEY_RATE = "rate";
-    private static final String KEY_PLOT = "plot";
+    public static final String MOVIE_EXTRA_KEY = "movieExtra";
+
+    private static final String KEY_POSTER_PATH = "poster_path";
+    private static final String KEY_TITLE = "original_title";
+    private static final String KEY_RELEASE_DATE = "release_date";
+    private static final String KEY_RATE = "vote_average";
+    private static final String KEY_PLOT = "overview";
     private final Double rate = 0.0;
 
     @Override
@@ -34,9 +35,6 @@ public class DetailedMovieActivity extends AppCompatActivity {
         final ProgressBar progressBar = findViewById(R.id.progressBar_iv);
         final ImageView poster_iv = findViewById(R.id.moviePoster_iv);
         progressBar.setVisibility(View.VISIBLE);
-
-
-
 
         Intent intent = getIntent();
         if (intent != null){

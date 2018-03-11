@@ -1,6 +1,7 @@
 package com.example.knightrider.popularmoviesstage1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -28,18 +29,24 @@ import java.util.List;
 
 import static com.android.volley.Request.Method.GET;
 
-public class MainMovieActivity extends AppCompatActivity {
+public class MainMovieActivity extends AppCompatActivity implements MoviesAdapter.ListMovieClickListener{
 
     private RecyclerView recyclerView;
     private MoviesAdapter adapter;
     private List<Movie> movieList;
-    private final String URL_TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=PUT YOUR API KY HERE";
-    private final String URL_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=PUT YOUR API KY HERE";
+    private final String URL_TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=PUT YOUR API KEY HERE";
+    private final String URL_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=PUT YOUR API KEY HERE";
     private String CHOSEN_URL = URL_TOP_RATED;
     private TextView NO_INTERNET;
     private Button REFRESH;
     private final Context context = this;
     private boolean POPULATED_UI_SUCCESSFULLY = false;
+    final String KEY_POSTER_PATH = "poster_path";
+    final String KEY_TITLE = "original_title";
+    final String KEY_RELEASE_DATE = "release_date";
+    final String KEY_RATE = "vote_average";
+    final String KEY_PLOT = "overview";
+    final String KEY_RESULTS = "results";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,12 +91,7 @@ public class MainMovieActivity extends AppCompatActivity {
 
     private void loadMovieData(String url){
 
-        final String KEY_POSTER_PATH = "poster_path";
-        final String KEY_TITLE = "original_title";
-        final String KEY_RELEASE_DATE = "release_date";
-        final String KEY_RATE = "vote_average";
-        final String KEY_PLOT = "overview";
-        final String KEY_RESULTS = "results";
+
 
         StringRequest stringRequest = new StringRequest(GET, url, response -> {
 
@@ -105,7 +107,7 @@ public class MainMovieActivity extends AppCompatActivity {
                             jo.optString(KEY_PLOT));
                     movieList.add(movies);
                 }
-                adapter = new MoviesAdapter(movieList, getApplicationContext());
+                adapter = new MoviesAdapter(movieList, getApplicationContext(), this);
                 recyclerView.setAdapter(adapter);
 
             }catch (JSONException e){
@@ -216,4 +218,17 @@ public class MainMovieActivity extends AppCompatActivity {
         REFRESH.setVisibility(View.INVISIBLE);
     }
 
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+
+        Movie movie1 = movieList.get(clickedItemIndex);
+        Intent intent = new Intent(context, DetailedMovieActivity.class);
+        intent.putExtra(KEY_POSTER_PATH, movie1.getPosterPath());
+        intent.putExtra(KEY_TITLE, movie1.getTitle());
+        intent.putExtra(KEY_RELEASE_DATE, movie1.getReleaseDate());
+        intent.putExtra(KEY_RATE, movie1.getVote());
+        intent.putExtra(KEY_PLOT, movie1.getOverview());
+        context.startActivity(intent);
+
+    }
 }

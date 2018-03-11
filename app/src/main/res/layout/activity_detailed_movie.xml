@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,55 +17,50 @@
         android:id="@+id/moviePoster_iv"
         android:layout_width="140dp"
         android:layout_height="205dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/poster_iv_description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/poster_iv_description"/>
+        app:layout_constraintTop_toBottomOf="@+id/movieTitle_tv" />
 
     <TextView
         android:id="@+id/movieTitle_tv"
-        android:layout_width="183dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toEndOf="@+id/moviePoster_iv"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Movie Title Here" />
 
     <TextView
         android:id="@+id/releaseDate"
-        android:layout_width="102dp"
-        android:layout_height="27dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/release_date_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
-        app:layout_constraintStart_toEndOf="@+id/moviePoster_iv"
-        app:layout_constraintTop_toBottomOf="@+id/movieTitle_tv" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviePoster_iv" />
 
     <TextView
         android:id="@+id/releaseDate_tv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/vote_iv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toEndOf="@+id/releaseDate"
-        app:layout_constraintTop_toBottomOf="@+id/movieTitle_tv"
-        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintTop_toBottomOf="@+id/moviePoster_iv"
         tools:text="2017-12-12" />
 
     <TextView
@@ -69,16 +69,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="@string/plot_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moviePoster_iv" />
+        app:layout_constraintTop_toBottomOf="@+id/vote" />
 
     <TextView
         android:id="@+id/plot_tv"
-        android:layout_width="325sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -111,27 +111,28 @@
         android:id="@+id/vote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/vote_average_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/releaseDate" />
+
+    <TextView
+        android:id="@+id/vote_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/vote_average_tv"
-        app:layout_constraintBottom_toTopOf="@+id/plot"
-        app:layout_constraintEnd_toStartOf="@+id/vote_iv"
-        app:layout_constraintHorizontal_bias="0.564"
-        app:layout_constraintStart_toEndOf="@+id/moviePoster_iv"
-        app:layout_constraintTop_toBottomOf="@+id/releaseDate"
-        app:layout_constraintVertical_bias="0.294" />
-
-    <TextView
-        android:id="@+id/vote_iv"
-        android:layout_width="81dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:layout_marginEnd="8dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/plot_tv"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toEndOf="@+id/vote"
+        app:layout_constraintTop_toBottomOf="@+id/releaseDate_tv"
+        app:layout_constraintVertical_bias="0.06"
         tools:text="5.5 of 10" />
 
 </android.support.constraint.ConstraintLayout>
+</ScrollView>
